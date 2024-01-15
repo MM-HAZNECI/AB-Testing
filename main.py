@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy.stats import shapiro, levene, ttest_ind
 
@@ -46,6 +47,13 @@ grouped_data=df.groupby("group").agg({"Purchase":"mean"})
 # Çubuk grafik oluşturma
 grouped_data.plot(kind='bar', legend=False)
 plt.title('Grup Bazında Ortalama Satın Alma Miktarı')
+plt.xlabel('Grup')
+plt.ylabel('Ortalama Satın Alma Miktarı')
+plt.show()
+
+#Box Plot
+sns.boxplot(x='group', y='Purchase', data=df)
+plt.title('Ortalama Satın Alma Miktarı Grup Bazında')
 plt.xlabel('Grup')
 plt.ylabel('Ortalama Satın Alma Miktarı')
 plt.show()
